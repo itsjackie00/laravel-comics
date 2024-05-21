@@ -3,8 +3,26 @@
 @section('title', 'Home')
 
 @section('content')
-<main>
-    <h1>Home page</h1>
+<main id="home">
+    <div class="container">
+        <h2 class="text-uppercase">Current Series</h2>
+        <div class="comics container">
+            <div class="row gx-4 gy-5">
+                @foreach ($mainComics as $comic)
+                    <div class="col-12 col-md-6 col-lg-4 col-xxl-2">
+                        <a href="#">
+                            <div class="cover">
+                                <img src="{{ $comic['thumb'] }}" alt="Copertina di {{ $comic['series'] }}" />
+                            </div>
+                            <h6 class="text-uppercase">{{ $comic['series'] }}</h6>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="text-uppercase btn btn-primary ">Load More</button>
+        </div>
+    </div>
 </main>
-
 @endsection
